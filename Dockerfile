@@ -35,4 +35,4 @@ VOLUME /var/lib/insight
 RUN chmod 755 run.sh
 
 EXPOSE 3001
-CMD ["run.sh"]
+CMD ./run.sh
