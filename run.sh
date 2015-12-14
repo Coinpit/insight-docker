@@ -18,7 +18,7 @@ do
   fi
 done
 
-cd $INSIGHT_DATA}/${NETWORK}
+cd ${INSIGHT_DATA}/${NETWORK}
 bitcore-node start
 
 bash
