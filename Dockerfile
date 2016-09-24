@@ -1,7 +1,7 @@
-FROM node:argon
+FROM coinpit/nodejs
 
 ENV TESTNET livenet
-
+ENV USER root
 WORKDIR /opt/insight
 
 RUN apt-get update \
@@ -9,7 +9,11 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && apt-get autoclean -y \
-    && rm -rf /var/lib/apt/lists/* \
+    && apt-get install libtool pkg-config build-essential autoconf automake -y \
+    && apt-get install software-properties-common -y \
+    && add-apt-repository ppa:chris-lea/zeromq \
+    && apt-get update \
+    && apt-get install libzmq3-dev -y \
     && npm install -g bitcore-node
 
 ADD . /opt/insight
@@ -29,6 +33,9 @@ RUN cd /opt/insight \
     && bitcore-node install insight-api \
     && bitcore-node install insight-ui \
     && rm -rf node_modules
+
+RUN rm -rf /var/lib/apt/lists/*
+
 
 VOLUME /var/lib/insight
 
