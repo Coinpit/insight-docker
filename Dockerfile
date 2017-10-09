@@ -1,4 +1,4 @@
-FROM coinpit/nodejs:8
+FROM coinpit/nodejs:v8
 
 ENV TESTNET livenet
 ENV USER root
