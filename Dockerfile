@@ -11,8 +11,6 @@ RUN apt-get update \
     && apt-get autoclean -y \
     && apt-get install libtool pkg-config build-essential autoconf automake -y \
     && apt-get install software-properties-common -y \
-    && add-apt-repository ppa:chris-lea/zeromq \
-    && apt-get update \
     && apt-get install libzmq3-dev -y \
     && npm install -g https://github.com/bitpay/bitcore-node
 
