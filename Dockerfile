@@ -4,7 +4,6 @@ ENV TESTNET livenet
 ENV USER root
 WORKDIR /opt/insight
 
-RUN which git
 RUN apt-get update \
     && apt-get install -y wget \
     && apt-get autoremove -y \
