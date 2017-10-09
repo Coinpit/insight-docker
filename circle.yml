@@ -4,12 +4,18 @@ machine:
 
 test:
   override:
-      - docker info
-      - docker build -t coinpit/insight:0.4.3 .
+    - docker info
 
 deployment:
   hub:
     branch: master
     commands:
+      - docker build -t coinpit/insight:0.4.3 .
+      - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
+      - docker push coinpit/insight
+  develop:
+    branch: develop
+    commands:
+      - docker build -t coinpit/insight:develop .
       - docker login -e $DOCKER_EMAIL -u $DOCKER_USER -p $DOCKER_PASS
       - docker push coinpit/insight

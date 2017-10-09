@@ -1,4 +1,4 @@
-FROM coinpit/nodejs
+FROM coinpit/nodejs:8
 
 ENV TESTNET livenet
 ENV USER root
@@ -14,7 +14,7 @@ RUN apt-get update \
     && add-apt-repository ppa:chris-lea/zeromq \
     && apt-get update \
     && apt-get install libzmq3-dev -y \
-    && npm install -g bitcore-node
+    && npm install -g https://github.com/bitpay/bitcore-node
 
 ADD . /opt/insight
 
