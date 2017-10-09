@@ -1,6 +1,7 @@
 machine:
   services:
     - docker
+    - git
 
 test:
   override:
