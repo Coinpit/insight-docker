@@ -9,7 +9,7 @@ RUN apt-get update \
     && apt-get install -y wget \
     && apt-get autoremove -y \
     && apt-get clean -y \
-    && apt-get autoclean -y \
+    && apt-get autoclean git -y \
     && apt-get install libtool pkg-config build-essential autoconf automake -y \
     && apt-get install software-properties-common -y \
     && apt-get install libzmq3-dev -y \
